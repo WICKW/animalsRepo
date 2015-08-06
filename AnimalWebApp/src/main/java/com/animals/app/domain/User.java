@@ -22,7 +22,6 @@ public class User implements Serializable{
     private boolean isActive;
 
     private List<UserRole> userRole;
-    private Address address;
     private UserType userType;
 
     public User() {
@@ -116,14 +115,6 @@ public class User implements Serializable{
         this.isActive = isActive;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
     public List<UserRole> getUserRole() {
         return userRole;
     }
@@ -195,7 +186,6 @@ public class User implements Serializable{
                 ", organizationInfo='" + organizationInfo + '\'' +
                 ", isActive=" + isActive +
                 ", userRole=" + userRole +
-                ", address=" + address +
                 ", userType=" + userType +
                 '}';
     }

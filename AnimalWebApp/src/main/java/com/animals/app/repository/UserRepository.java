@@ -13,18 +13,18 @@ public interface UserRepository {
 
     final String INSERT = "<script> " +
             "INSERT INTO users (Name, Surname, DateOfRegistration, " +
-            "UserTypeId, UserRoleId, Phone, AddressId, Email, SocialLogin, " +
+            "UserTypeId, UserRoleId, Phone, Email, SocialLogin, " +
             "Password, OrganizationName, OrganizationInfo, IsActive) " +
             "VALUES " +
             "<foreach collection='userRole' item='element' index='index' open='(' separator='),(' close=')'> " +
             "#{name}, #{surname}, #{registrationDate}, #{userType.id}, " +
-            "#{element.id}, #{phone}, #{address.id}, #{email}, #{socialLogin}, " +
+            "#{element.id}, #{phone}, #{email}, #{socialLogin}, " +
             "#{password}, #{organizationName}, #{organizationInfo}, #{isActive} " +
             "</foreach></script>";
 
     final String UPDATE = "UPDATE users SET Name=#{name}, Surname=#{surname}, " +
-            "DateOfRegistration=#{registrationDate}, UserTypeId=#{userType.id}, " +
-            "UserRoleId=#{userRole, typeHandler=com.animals.app.domain.UserRole}, Phone=#{phone}, AddressId=#{address.id}, " +
+            "UserTypeId=#{userType.id}, " +
+            "UserRoleId=#{userRole, typeHandler=com.animals.app.domain.UserRole}, Phone=#{phone}, " +
             "Email=#{email}, SocialLogin=#{socialLogin}, Password=#{password}, " +
             "OrganizationName=#{organizationName}, OrganizationInfo=#{organizationInfo}, " +
             "IsActive=#{isActive} " +
@@ -33,12 +33,12 @@ public interface UserRepository {
     final String DELETE = "DELETE FROM users WHERE Id = #{id}";
 
     final String SELECT_BY_ID = "SELECT Id, Name, Surname, DateOfRegistration, " +
-            " UserTypeId, UserRoleId, Phone, AddressId, Email, SocialLogin, " +
+            " UserTypeId, UserRoleId, Phone, Email, SocialLogin, " +
             " Password, OrganizationName, OrganizationInfo, IsActive " +
             " FROM users WHERE Id = #{id}";
     
     final String SELECT_USERS = "SELECT Id, Name, Surname, DateOfRegistration, " +
-            " UserTypeId, UserRoleId, Phone, AddressId, Email, SocialLogin, " +
+            " UserTypeId, UserRoleId, Phone, Email, SocialLogin, " +
             " Password, OrganizationName, OrganizationInfo, IsActive " +
             " FROM users";
 
@@ -79,9 +79,7 @@ public interface UserRepository {
             one = @One(select = "com.animals.app.repository.UserTypeRepository.getById")),
             @Result(property="userRole", column="userRoleId", javaType = List.class,
             many = @Many(select = "com.animals.app.repository.UserRoleRepository.getById")),
-            @Result(property="phone", column="Phone"),
-            @Result(property="address", column="addressId", javaType = Address.class,
-            one = @One(select = "com.animals.app.repository.AddressRepository.getById")),
+            @Result(property="phone", column="Phone"),            
             @Result(property="email", column="Email"),
             @Result(property="socialLogin", column="SocialLogin"),
             @Result(property="organizationName", column="OrganizationName"),
@@ -103,9 +101,7 @@ public interface UserRepository {
             one = @One(select = "com.animals.app.repository.UserTypeRepository.getById")),
             @Result(property="userRole", column="userRoleId", javaType = List.class,
             many = @Many(select = "com.animals.app.repository.UserRoleRepository.getById")),
-            @Result(property="phone", column="Phone"),
-            @Result(property="address", column="addressId", javaType = Address.class,
-            one = @One(select = "com.animals.app.repository.AddressRepository.getById")),
+            @Result(property="phone", column="Phone"),            
             @Result(property="email", column="Email"),
             @Result(property="socialLogin", column="SocialLogin"),
             @Result(property="organizationName", column="OrganizationName"),

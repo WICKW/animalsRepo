@@ -14,9 +14,7 @@ import org.junit.runners.MethodSorters;
 import java.sql.Date;
 import java.util.List;
 
-import static junit.framework.Assert.assertNotSame;
-import static junit.framework.Assert.assertNull;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * Created by oleg on 24.07.2015.
@@ -39,7 +37,6 @@ public class TestUserRepositoryImpl {
         actual.setUserType(new UserTypeRepositoryImpl().getAll().get(0));
         actual.setUserRole(new UserRoleRepositoryImpl().getAll().subList(0,1));
         actual.setPhone(RandomStringUtils.random(10, true, true));
-        actual.setAddress(new AddressRepositoryImpl().getAll().get(0));
         actual.setEmail(RandomStringUtils.random(10, true, true));
         actual.setSocialLogin(RandomStringUtils.random(10, true, true));
         actual.setPassword(RandomStringUtils.random(10, true, true));

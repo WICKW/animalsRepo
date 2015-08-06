@@ -68,14 +68,10 @@ public interface AnimalRepository {
     @Select(SELECT_ALL)
     @Results(value = {
             @Result(property="id", column="id"),
-            @Result(property="sex", column="sexTypeId", javaType = AnimalSexType.class,
-                    one = @One(select = "com.animals.app.repository.AnimalSexTypeRepository.getById")),
             @Result(property="type", column="typeId", javaType = AnimalType.class,
                     one = @One(select = "com.animals.app.repository.AnimalTypeRepository.getById")),
-            @Result(property="size", column="sizeId", javaType = AnimalSize.class,
-                    one = @One(select = "com.animals.app.repository.AnimalSizeRepository.getById")),
-            @Result(property="cites", column="citesId", javaType = AnimalCitesType.class,
-                    one = @One(select = "com.animals.app.repository.AnimalCitesTypeRepository.getById")),
+           
+            
             @Result(property="sort", column="sort"),
             @Result(property="transpNumber", column="transpNumber"),
             @Result(property="tokenNumber", column="tokenNumber"),
@@ -85,8 +81,7 @@ public interface AnimalRepository {
             @Result(property="color", column="color"),
             @Result(property="user", column="userId", javaType = User.class,
                     one = @One(select = "com.animals.app.repository.UserRepository.getById")),
-            @Result(property="address", column="addressId", javaType = Address.class,
-                    one = @One(select = "com.animals.app.repository.AddressRepository.getById")),
+            
             @Result(property="active", column="isActive"),
             @Result(property="image", column="image"),
             @Result(property="service", column="serviceId", javaType = AnimalService.class,
@@ -102,14 +97,11 @@ public interface AnimalRepository {
     @Select(SELECT_BY_ID)
     @Results(value = {
             @Result(property="id", column="id"),
-            @Result(property="sex", column="sexTypeId", javaType = AnimalSexType.class,
-                    one = @One(select = "com.animals.app.repository.AnimalSexTypeRepository.getById")),
+            
             @Result(property="type", column="typeId", javaType = AnimalType.class,
                     one = @One(select = "com.animals.app.repository.AnimalTypeRepository.getById")),
-            @Result(property="size", column="sizeId", javaType = AnimalSize.class,
-                    one = @One(select = "com.animals.app.repository.AnimalSizeRepository.getById")),
-            @Result(property="cites", column="citesId", javaType = AnimalCitesType.class,
-                    one = @One(select = "com.animals.app.repository.AnimalCitesTypeRepository.getById")),
+            
+         
             @Result(property="sort", column="sort"),
             @Result(property="transpNumber", column="transpNumber"),
             @Result(property="tokenNumber", column="tokenNumber"),
@@ -119,8 +111,7 @@ public interface AnimalRepository {
             @Result(property="color", column="color"),
             @Result(property="user", column="userId", javaType = User.class,
                     one = @One(select = "com.animals.app.repository.UserRepository.getById")),
-            @Result(property="address", column="addressId", javaType = Address.class,
-                    one = @One(select = "com.animals.app.repository.AddressRepository.getById")),
+            
             @Result(property="active", column="isActive"),
             @Result(property="image", column="image"),
             @Result(property="service", column="serviceId", javaType = AnimalService.class,

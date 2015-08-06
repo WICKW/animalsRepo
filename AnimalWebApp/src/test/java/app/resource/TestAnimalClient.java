@@ -29,10 +29,10 @@ public class TestAnimalClient {
     @BeforeClass
     public static void runBeforeClass() {
         actual = new Animal();
-        actual.setSex(new AnimalSexTypeRepositoryImpl().getAll().get(0));
+      
         actual.setType(new AnimalTypeRepositoryImpl().getAll().get(0));
-        actual.setSize(new AnimalSizeRepositoryImpl().getAll().get(0));
-        actual.setAnimalCites(new AnimalCitesTypeRepositoryImpl().getAll().get(0));
+    
+       
         actual.setSort(RandomStringUtils.random(10, true, true));
         actual.setTranspNumber(RandomStringUtils.random(10, true, true));
         actual.setTokenNumber(RandomStringUtils.random(10, true, true));
@@ -41,7 +41,7 @@ public class TestAnimalClient {
         actual.setDateOfSterilization(new Date(System.currentTimeMillis()));
         actual.setColor(RandomStringUtils.random(10, true, true));
         actual.setUser(new UserRepositoryImpl().getAll().get(0));
-        actual.setAddress(new AddressRepositoryImpl().getAll().get(0));
+    
         actual.setActive(true);
         actual.setImage(RandomStringUtils.random(10, true, true));
         actual.setService(new AnimalServiceRepositoryImpl().getAll().get(0));

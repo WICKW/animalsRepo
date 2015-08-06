@@ -9,10 +9,9 @@ import java.sql.Date;
 public class Animal implements Serializable{
 
     private Long id;
-    private AnimalSexType sex;
+    
     private AnimalType type;
-    private AnimalSize size;
-    private AnimalCitesType cites;
+   
     private String sort; //kind of animal(labrador, husky)
     private String transpNumber;
     private String tokenNumber;
@@ -21,7 +20,7 @@ public class Animal implements Serializable{
     private Date dateOfSterilization;
     private String color;
     private User user;
-    private Address address;
+   
     private Boolean active;
     private String image;
     private AnimalService service;
@@ -34,13 +33,7 @@ public class Animal implements Serializable{
         this.id = id;
     }
 
-    public AnimalSexType getSex() {
-        return sex;
-    }
-
-    public void setSex(AnimalSexType sex) {
-        this.sex = sex;
-    }
+   
 
     public AnimalType getType() {
         return type;
@@ -50,21 +43,7 @@ public class Animal implements Serializable{
         this.type = type;
     }
 
-    public AnimalSize getSize() {
-        return size;
-    }
-
-    public void setSize(AnimalSize size) {
-        this.size = size;
-    }
-
-    public AnimalCitesType getAnimalCites() {
-        return cites;
-    }
-
-    public void setAnimalCites(AnimalCitesType cites) {
-        this.cites = cites;
-    }
+    
 
     public String getSort() {
         return sort;
@@ -129,14 +108,7 @@ public class Animal implements Serializable{
     public void setUser(User user) {
         this.user = user;
     }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+   
 
     public Boolean getActive() {
         return active;
@@ -170,10 +142,10 @@ public class Animal implements Serializable{
         Animal animal = (Animal) o;
 
         if (id != null ? !id.equals(animal.id) : animal.id != null) return false;
-        if (sex != null ? !sex.equals(animal.sex) : animal.sex != null) return false;
+    
         if (type != null ? !type.equals(animal.type) : animal.type != null) return false;
-        if (size != null ? !size.equals(animal.size) : animal.size != null) return false;
-        if (cites != null ? !cites.equals(animal.cites) : animal.cites != null) return false;
+   
+     
         if (sort != null ? !sort.equals(animal.sort) : animal.sort != null) return false;
         if (transpNumber != null ? !transpNumber.equals(animal.transpNumber) : animal.transpNumber != null)
             return false;
@@ -185,7 +157,7 @@ public class Animal implements Serializable{
             return false;
         if (color != null ? !color.equals(animal.color) : animal.color != null) return false;
         if (user != null ? !user.equals(animal.user) : animal.user != null) return false;
-        if (address != null ? !address.equals(animal.address) : animal.address != null) return false;
+     
         if (active != null ? !active.equals(animal.active) : animal.active != null) return false;
         if (image != null ? !image.equals(animal.image) : animal.image != null) return false;
         return !(service != null ? !service.equals(animal.service) : animal.service != null);
@@ -195,10 +167,10 @@ public class Animal implements Serializable{
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (sex != null ? sex.hashCode() : 0);
+       
         result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (size != null ? size.hashCode() : 0);
-        result = 31 * result + (cites != null ? cites.hashCode() : 0);
+      
+       
         result = 31 * result + (sort != null ? sort.hashCode() : 0);
         result = 31 * result + (transpNumber != null ? transpNumber.hashCode() : 0);
         result = 31 * result + (tokenNumber != null ? tokenNumber.hashCode() : 0);
@@ -207,7 +179,7 @@ public class Animal implements Serializable{
         result = 31 * result + (dateOfSterilization != null ? dateOfSterilization.hashCode() : 0);
         result = 31 * result + (color != null ? color.hashCode() : 0);
         result = 31 * result + (user != null ? user.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
+      
         result = 31 * result + (active != null ? active.hashCode() : 0);
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (service != null ? service.hashCode() : 0);
@@ -218,10 +190,10 @@ public class Animal implements Serializable{
     public String toString() {
         return "Animal{" +
                 "id=" + id +
-                ", sex=" + sex +
+              
                 ", type=" + type +
-                ", size=" + size +
-                ", cites=" + cites +
+        
+     
                 ", sort='" + sort + "'" +
                 ", transpNumber='" + transpNumber + "'" +
                 ", tokenNumber='" + tokenNumber + "'" +
@@ -230,7 +202,7 @@ public class Animal implements Serializable{
                 ", dateOfSterilization='" + dateOfSterilization + "'" +
                 ", color='" + color + "'" +
                 ", user=" + user +
-                ", address=" + address +
+  
                 ", active='" + active + "'" +
                 ", image='" + image + "'" +
                 ", service=" + service +
