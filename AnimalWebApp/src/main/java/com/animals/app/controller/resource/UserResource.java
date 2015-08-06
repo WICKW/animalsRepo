@@ -116,7 +116,7 @@ public class UserResource {
 			return BAD_REQUEST;
 		}		
 				
-		//if (userRep.getById(id) == null) return NOT_FOUND;     
+		if (userRep.getById(id) == null) return NOT_FOUND;     
 		
         userRep.update(user);
 		

@@ -61,7 +61,7 @@ animalApp.controller('UserProfileController', function($scope) {
 					data: userJson			
 					}).then(function(data) {
 						var str = JSON.stringify(data, null, '\t');
-						str = prepareJson(str);
+//						str = prepareJson(str);
 						console.log(str);
 						// $('#result').html(str);
 						// highlightResult();
