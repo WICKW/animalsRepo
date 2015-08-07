@@ -31,22 +31,30 @@ animalApp.controller('UserProfileController', function($scope) {
 			
 			var userId = 25; // It's a STUB! Real user Id we should take from SESSION 
 				
-			var userLogin=$("#userLogin").val(); 
+			var socialLogin=$("#userLogin").val(); 
 			var userName=$("#userName").val(); 
 			var userSurname=$("#userSurname").val(); 
 			var userEmail=$("#userEmail").val(); 
-			var password=$("#password").val(); 
+			var password=CryptoJS.MD5($("#password").val()); 
 			var userPhone=$("#userPhone").val(); 
 			var userAdress=$("#userAdress").val(); 
-			var userCompany=$("#userCompany").val(); 
-			var userCompanyInfo=$("#userCompanyInfo").val(); 
-			var userRole = "user";			
+			var organizationName=$("#userCompany").val(); 
+			var organizationInfo=$("#userCompanyInfo").val(); 
+			var userRole = "user";	
+			
+			console.log(password);
+			
+			var d = new Date();
+			var month = d.getMonth()+1;
+			var day = d.getDate();
+			var regDate = d.getFullYear() + '-' + (month<10 ? '0' : '') + month + '-' +    (day<10 ? '0' : '') + day;
+			console.log(regDate);
 
 			// var userJson = ('{"id" :' + petId +', "type" : ' + petType + ', "owner":{"name":' + petOwName + ', "id" : ' + petOwId + ', "adress" : ' + petOwAd + '}, "size" : ' + petSize + '}' );
 
-			var userJson = ('{"active": true, "address": {"id": 30}, "email":"' + userEmail + '", "name" : "' + userName + '", "password" : "'+ password + '", "surname" : "' +
-						userSurname + '", "phone" : "'+ userPhone	+ '", "userCompany" : "'+	userCompany + '", "userAdress" : "'+ userAdress+'", "userCompanyInfo" : "' +
-						userCompanyInfo+'","userRole": {"id": 3},"userType": {"id": 1},'+ '"id": "'+ userId + '"}'); 
+			var userJson = ('{"active": true, "email":"' + userEmail + '", "name" : "' + userName + '", "password" : "'+ password + '", "surname" : "' +
+					userSurname + '", "phone" : "'+ userPhone	+ '", "organizationName" : "'+	organizationName + '", "userAdress" : "'+ userAdress+'", "organizationInfo" : "' +
+					organizationInfo +'", "userRole" : {"id": 3}, "userType" : {"id": 1},'+ ' "registrationDate": "' + regDate +'", "socialLogin": "'+ socialLogin + '", "id": "'+ userId + '"}');  
 				
 			console.log(userJson);
 			
@@ -61,15 +69,24 @@ animalApp.controller('UserProfileController', function($scope) {
 					data: userJson			
 					}).then(function(data) {
 						var str = JSON.stringify(data, null, '\t');
-//						str = prepareJson(str);
-						console.log(str);
-						// $('#result').html(str);
-						// highlightResult();
+						console.log(str);						
 		         	});			
 		});
 		
-	
-	
-	
+		//OAuth		
+		$('.btn-facebook').click(function() {
+			console.log("ping");
+		   window.location = root + "facebook";
+		}); 
+		
+		$('.btn-google').click(function() {
+			console.log("ping");
+		   window.location = root + "google";
+		}); 
+		
+		$('.btn-twitter').click(function() {
+			console.log("ping");
+		   window.location = root + "twitter";
+		});
 	
 });

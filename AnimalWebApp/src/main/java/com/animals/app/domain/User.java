@@ -20,14 +20,25 @@ public class User implements Serializable{
     private String organizationName;
     private String organizationInfo;
     private boolean isActive;
+    private String userAdress;
 
     private List<UserRole> userRole;
     private UserType userType;
 
     public User() {
     }
+        
 
-    public Integer getId() {
+    public String getUserAdress() {
+		return userAdress;
+	}
+
+	public void setUserAdress(String userAdress) {
+		this.userAdress = userAdress;
+	}
+
+
+	public Integer getId() {
         return id;
     }
 

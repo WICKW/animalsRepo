@@ -13,21 +13,21 @@ public interface UserRepository {
 
     final String INSERT = "<script> " +
             "INSERT INTO users (Name, Surname, DateOfRegistration, " +
-            "UserTypeId, UserRoleId, Phone, Email, SocialLogin, " +
-            "Password, OrganizationName, OrganizationInfo, IsActive) " +
+            "UserTypeId, UserRoleId, Phone, Email, " +
+            "Password, organizationName, organizationInfo, IsActive, socialLogin, address) " +
             "VALUES " +
             "<foreach collection='userRole' item='element' index='index' open='(' separator='),(' close=')'> " +
             "#{name}, #{surname}, #{registrationDate}, #{userType.id}, " +
-            "#{element.id}, #{phone}, #{email}, #{socialLogin}, " +
-            "#{password}, #{organizationName}, #{organizationInfo}, #{isActive} " +
+            "#{element.id}, #{phone}, #{email}, " +
+            "#{password}, #{organizationName}, #{organizationInfo}, #{isActive}, #{socialLogin}, #{userAdress} " +
             "</foreach></script>";
 
     final String UPDATE = "UPDATE users SET Name=#{name}, Surname=#{surname}, " +
             "UserTypeId=#{userType.id}, " +
             "UserRoleId=#{userRole, typeHandler=com.animals.app.domain.UserRole}, Phone=#{phone}, " +
-            "Email=#{email}, SocialLogin=#{socialLogin}, Password=#{password}, " +
-            "OrganizationName=#{organizationName}, OrganizationInfo=#{organizationInfo}, " +
-            "IsActive=#{isActive} " +
+            "Email=#{email}, socialLogin=#{socialLogin}, Password=#{password}, " +
+            "organizationName=#{organizationName}, organizationInfo=#{organizationInfo}, " +
+            "IsActive=#{isActive}, address=#{userAdress}" +
             "WHERE Id=#{id}";
 
     final String DELETE = "DELETE FROM users WHERE Id = #{id}";

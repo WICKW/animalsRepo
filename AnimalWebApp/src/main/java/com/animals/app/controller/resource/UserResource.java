@@ -92,7 +92,7 @@ public class UserResource {
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Response insertUser (User user) {
 		
-		if (user==null) return BAD_REQUEST;
+		//if (user==null) return BAD_REQUEST;
 		
 		userRep.insert(user);
 		
